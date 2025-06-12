@@ -5,7 +5,7 @@ const products = [
     title: 'Running Shoes',
     price: 99,
     rating: 4,
-    category: 'Electronics',
+    category: 'Clothing',
     description: 'Comfortable running shoes for everyday use.'
   },
   {
@@ -23,7 +23,7 @@ const products = [
     title: 'Backpack',
     price: 129,
     rating: 4,
-    category: 'Clothing',
+    category: 'Home',
     description: 'Durable backpack for travel and daily use.'
   },
   {

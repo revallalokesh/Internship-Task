@@ -2,6 +2,7 @@
 import React from 'react';
 import { useCart } from '../context/CartContext';
 import { X, Plus, Minus } from 'lucide-react';
+import Image from 'next/image';
 
 const CartPage = () => {
   const { cart, removeFromCart, updateQuantity } = useCart();
@@ -18,7 +19,7 @@ const CartPage = () => {
         <div className="space-y-6">
           {items.map(item => (
             <div key={item.id} className="flex items-center bg-white rounded-lg shadow p-4 gap-4">
-              <img src={item.image} alt={item.title} className="w-20 h-20 object-contain rounded" />
+              <Image src={item.image} alt={item.title} width={80} height={80} className="w-20 h-20 object-contain rounded" />
               <div className="flex-1">
                 <div className="font-semibold">{item.title}</div>
                 <div className="text-blue-800 font-bold">${item.price}</div>

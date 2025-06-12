@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { Star } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import Link from 'next/link';
+import Image from 'next/image';
 
 type ProductCardProps = {
   id: number;
@@ -16,7 +17,7 @@ type ProductCardProps = {
 };
 
 const ProductCard: React.FC<ProductCardProps> = ({ id, image, title, price, rating, ...rest }) => {
-  const { addToCart, cart } = useCart();
+  const { addToCart } = useCart();
   const [added, setAdded] = useState(false);
 
   const handleAdd = (e: React.MouseEvent) => {
@@ -27,12 +28,10 @@ const ProductCard: React.FC<ProductCardProps> = ({ id, image, title, price, rati
     setTimeout(() => setAdded(false), 1000);
   };
 
-  const inCart = cart.items.some(item => item.id === id);
-
   return (
     <div className="bg-white rounded-xl shadow p-4 flex flex-col items-center hover:shadow-lg transition cursor-pointer">
       <Link href={`/product/${id}`} className="flex flex-col items-center w-full h-full flex-1" tabIndex={-1}>
-        <img src={image} alt={title} className="w-24 h-24 object-contain mb-3" />
+        <Image src={image} alt={title} width={96} height={96} className="w-24 h-24 object-contain mb-3" />
         <div className="font-semibold text-center mb-1">{title}</div>
         <div className="text-blue-800 font-bold mb-1">${price}</div>
         {rating && (
